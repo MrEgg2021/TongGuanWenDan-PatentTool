@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "[pre-commit] Running text encoding integrity check..."
+
+if command -v python >/dev/null 2>&1; then
+  python tools/check_text_encoding_integrity.py
+elif command -v py >/dev/null 2>&1; then
+  py -3 tools/check_text_encoding_integrity.py
+else
+  echo "[pre-commit] Python not found in PATH."
+  exit 1
+fi

@@ -1,0 +1,339 @@
+{
+  "version": 2,
+  "default_fields": [],
+  "by_notice_key": {},
+  "by_notice_code": {
+    "210401": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw",
+      "examiner",
+      "examiner_phone",
+      "reject_reason",
+      "prior_art",
+      "dossier_no"
+    ],
+    "210403": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw",
+      "examiner",
+      "examiner_phone",
+      "reject_reason",
+      "prior_art",
+      "dossier_no"
+    ],
+    "210302": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw",
+      "examiner",
+      "examiner_phone",
+      "dossier_no"
+    ],
+    "220301": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw",
+      "examiner",
+      "examiner_phone",
+      "prior_art",
+      "dossier_no"
+    ],
+    "230301": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw",
+      "examiner",
+      "examiner_phone",
+      "dossier_no"
+    ],
+    "230302": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw",
+      "examiner",
+      "examiner_phone",
+      "prior_art",
+      "dossier_no"
+    ],
+    "210407": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw",
+      "examiner",
+      "examiner_phone",
+      "reject_reason",
+      "prior_art",
+      "dossier_no"
+    ],
+    "200305": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw",
+      "examiner",
+      "examiner_phone",
+      "prior_art",
+      "dossier_no"
+    ],
+    "200101": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw",
+      "dossier_no"
+    ],
+    "400001": [
+      "applicant",
+      "inventor",
+      "authorization_pub_no",
+      "authorization_pub_date",
+      "certificate_no",
+      "qrcode_link",
+      "qrcode_image"
+    ],
+    "400002": [
+      "applicant",
+      "inventor",
+      "authorization_pub_no",
+      "authorization_pub_date",
+      "certificate_no",
+      "qrcode_link",
+      "qrcode_image"
+    ],
+    "400003": [
+      "applicant",
+      "inventor",
+      "authorization_pub_no",
+      "authorization_pub_date",
+      "certificate_no",
+      "qrcode_link",
+      "qrcode_image"
+    ],
+    "200912": [
+      "agency_raw",
+      "applicant",
+      "panel_head",
+      "panel_main",
+      "panel_member"
+    ],
+    "200913": [
+      "agency_raw",
+      "applicant",
+      "panel_head",
+      "panel_main",
+      "panel_member"
+    ],
+    "200908": [
+      "agency_raw",
+      "applicant",
+      "panel_head",
+      "panel_main",
+      "panel_member"
+    ],
+    "200905": [
+      "agency_raw",
+      "applicant",
+      "panel_head",
+      "panel_main",
+      "panel_member"
+    ],
+    "201013": [
+      "agency_raw",
+      "applicant",
+      "panel_head",
+      "panel_main",
+      "panel_member"
+    ],
+    "201014": [
+      "agency_raw",
+      "applicant",
+      "panel_head",
+      "panel_main",
+      "panel_member"
+    ],
+    "201019": [
+      "agency_raw",
+      "applicant",
+      "panel_head",
+      "panel_main",
+      "panel_member"
+    ],
+    "201004": [
+      "agency_raw",
+      "applicant",
+      "panel_head",
+      "panel_main",
+      "panel_member"
+    ],
+    "200602": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw"
+    ],
+    "200701": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw"
+    ],
+    "200702": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw",
+      "examiner",
+      "examiner_phone"
+    ],
+    "200021": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw"
+    ],
+    "200022": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw",
+      "examiner",
+      "examiner_phone"
+    ],
+    "200023": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw"
+    ],
+    "200028": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw",
+      "examiner",
+      "examiner_phone"
+    ],
+    "200029": [
+      "applicant"
+    ],
+    "201510": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw"
+    ],
+    "210304": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw",
+      "examiner",
+      "examiner_phone"
+    ],
+    "210305": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw"
+    ],
+    "210307": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw"
+    ],
+    "210326": [
+      "applicant"
+    ],
+    "200103": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw"
+    ],
+    "200027": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw"
+    ],
+    "200916": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw",
+      "examiner",
+      "examiner_phone"
+    ],
+    "PCT/ISA/210C": [
+      "agency_raw",
+      "applicant",
+      "prior_art"
+    ],
+    "PCT/ISA/220C": [
+      "agency_raw",
+      "applicant"
+    ],
+    "PCT/ISA/237C": [
+      "agency_raw",
+      "applicant"
+    ],
+    "PCT/RO/102C": [
+      "agency_raw",
+      "applicant"
+    ],
+    "PCT/RO/105C": [
+      "agency_raw",
+      "applicant"
+    ],
+    "PCT/ISA/202C": [
+      "agency_raw",
+      "applicant"
+    ],
+    "PCT/ISA/224C": [
+      "agency_raw",
+      "applicant"
+    ],
+    "10071": [],
+    "200105": [],
+    "200601": [
+      "department",
+      "center",
+      "applicant",
+      "inventor",
+      "agency_raw"
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+name: text-integrity
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  text-encoding:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run text encoding integrity check
+        run: python tools/check_text_encoding_integrity.py
+
+  windows-python-baseline:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt -r requirements-dev.txt
+
+      - name: Compile Python sources
+        run: python -m compileall -q .
+
+      - name: Run Ruff
+        run: python -m ruff check .
+
+      - name: Run Pyflakes deterministic gate
+        run: python tools/quality/pyflakes_gate.py gui_app.py core gui tools tests
+
+      - name: Run unittest baseline
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: python -m unittest discover -s tests -p "test_*.py"

@@ -1,0 +1,4 @@
+radon==6.0.1
+vulture==2.11
+ruff==0.9.10
+pyflakes==3.4.0

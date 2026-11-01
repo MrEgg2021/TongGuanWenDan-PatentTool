@@ -1,0 +1,305 @@
+{
+  "version": 1,
+  "types": [
+    {
+      "key": "exam_opinion",
+      "display_name": "审查意见通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "rectification",
+      "display_name": "补正通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "200702|专利权终止通知书",
+      "display_name": "专利权终止通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "200101|专利申请受理通知书",
+      "display_name": "专利申请受理通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "PCT/ISA/220C|传送国际检索报告和国际检索单位书面意见或宣布的通知书",
+      "display_name": "传送国际检索报告和国际检索单位书面意见或宣布的通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "PCT/RO/102C|关于缴纳规定费用的通知书",
+      "display_name": "关于缴纳规定费用的通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "200602|办理登记手续通知书",
+      "display_name": "办理登记手续通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "210305|发明专利申请公布通知书",
+      "display_name": "发明专利申请公布通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "210304|发明专利申请初步审查合格通知书",
+      "display_name": "发明专利申请初步审查合格通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "210307|发明专利申请进入实质审查阶段通知书",
+      "display_name": "发明专利申请进入实质审查阶段通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "400001|发明专利证书",
+      "display_name": "发明专利证书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "PCT/ISA/237C|国际检索单位书面意见",
+      "display_name": "国际检索单位书面意见",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "PCT/ISA/210C|国际检索报告",
+      "display_name": "国际检索报告",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "PCT/RO/105C|国际申请号和国际申请日通知书",
+      "display_name": "国际申请号和国际申请日通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "200912|复审决定书（首页）",
+      "display_name": "复审决定书（首页）",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "200913|复审案件结案通知书",
+      "display_name": "复审案件结案通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "200905|复审请求受理通知书",
+      "display_name": "复审请求受理通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "200908|复审通知书(首页)",
+      "display_name": "复审通知书(首页)",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "400003|外观设计专利证书",
+      "display_name": "外观设计专利证书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "400002|实用新型专利证书",
+      "display_name": "实用新型专利证书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "201510|审查业务专用函（非正常）",
+      "display_name": "审查业务专用函（非正常）",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "200916|延长期限审批通知书",
+      "display_name": "延长期限审批通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "200028|手续合格通知书（撤回专利申请）",
+      "display_name": "手续合格通知书（撤回专利申请）",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "200028|手续合格通知书（著录项目变更）",
+      "display_name": "手续合格通知书（著录项目变更）",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "PCT/ISA/202C|收到检索本的通知书",
+      "display_name": "收到检索本的通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "200021|收费减缴审批通知书",
+      "display_name": "收费减缴审批通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "PCT/ISA/224C|无其他可适用表格时的通知书",
+      "display_name": "无其他可适用表格时的通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "201004|无效宣告请求受理通知书（专利权人）",
+      "display_name": "无效宣告请求受理通知书（专利权人）",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "201014|无效宣告请求口头审理通知书",
+      "display_name": "无效宣告请求口头审理通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "201019|无效宣告请求审查决定书",
+      "display_name": "无效宣告请求审查决定书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "10071|电子提交收据",
+      "display_name": "电子提交收据",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "200105|电子申请回执",
+      "display_name": "电子申请回执",
+      "processable": false,
+      "disabled_reason": "回执类通知书不纳入处理"
+    },
+    {
+      "key": "210403|第N次审查意见通知书",
+      "display_name": "第N次审查意见通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "230302|第N次审查意见通知书",
+      "display_name": "第N次审查意见通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "230301|第N次补正通知书",
+      "display_name": "第N次补正通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "210401|第一次审查意见通知书",
+      "display_name": "第一次审查意见通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "220301|第一次审查意见通知书",
+      "display_name": "第一次审查意见通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "220301|第二次审查意见通知书",
+      "display_name": "第二次审查意见通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "200103|缴纳申请费通知书",
+      "display_name": "缴纳申请费通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "200701|缴费通知书",
+      "display_name": "缴费通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "210302|补正通知书",
+      "display_name": "补正通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "200029|办理手续补正通知书",
+      "display_name": "办理手续补正通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "210326|向外国申请专利保密审查意见通知书",
+      "display_name": "向外国申请专利保密审查意见通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "200022|视为撤回通知书",
+      "display_name": "视为撤回通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "200601|视为放弃取得专利权通知书",
+      "display_name": "视为放弃取得专利权通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "200023|视为未提出通知书（著录项目变更）",
+      "display_name": "视为未提出通知书（著录项目变更）",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "201013|转送文件通知书（专利权人）",
+      "display_name": "转送文件通知书（专利权人）",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "200027|退款审批通知书",
+      "display_name": "退款审批通知书",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "210407|驳回决定",
+      "display_name": "驳回决定",
+      "processable": true,
+      "disabled_reason": ""
+    },
+    {
+      "key": "200305|驳回决定通知书",
+      "display_name": "驳回决定通知书",
+      "processable": true,
+      "disabled_reason": ""
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+# 核心配置
+app:
+  name: "TongGuanWenDan"
+version: "1.0.0"
+
+paths:
+  temp_dir: "temp_processing"
+  output_dir: "output"
+
+word_engine:
+  visible: false          # 静默模式
+  display_alerts: 0       # 禁止弹窗 (wdAlertsNone)
+  screen_updating: false  # 禁止屏幕刷新
+  kill_zombies: true      # 启动时清理僵尸进程
+  allow_kill: false       # 是否允许 kill 兜底（默认禁止，仅在明确授权时开启）
+  zoom_percentage: 400    # 截图前的视图缩放比例
+
+image_processing:
+  scale_factor: 4.0       # 矢量图转位图放大倍数
+  min_short_edge: 0       # 最小短边像素（0 表示不强制放大）
+  jpeg_quality: 100        # JPG 质量
+  jpeg_subsampling: 0     # JPG 色度子采样模式（0=4:4:4，不降采样）
+  bg_color: "#FFFFFF"     # 填充背景色
+  sharpen_enabled: true
+  sharpen_amount: 1.5
+  sharpen_radius: 1.0
+  contrast_clip: 1.0
+  binarize_enabled: false
+  binarize_method: "otsu"
+  equation_center_text_width_mm: 165.0
+  crop_safe_width_ratio: 0.85       # 裁切后宽度低于该比例则回退原图
+  crop_safe_height_ratio: 0.7       # 裁切后高度低于该比例则回退原图
+  crop_edge_guard_px: 2             # 边缘保护像素（检测边缘内容时的采样宽度）
+  crop_edge_guard_threshold: 245    # 边缘保护阈值（灰度小于该值视为疑似有效像素）
+  equation_crop_padding_min: 8
+  equation_center_scale_mode: "lossless_canvas"  # 居中块公式缩放模式: resample / lossless_canvas
+  equation_center_lossless_max_canvas_width_px: 10000  # 无损补白模式的画布宽度上限
+  equation_diag_enabled: false
+  equation_diag_dir: "temp_processing/eq_diag"
+
+drawings_fidelity:
+  mode: "smart"            # 说明书附图清晰度策略：smart / off
+  target_dpi: 300          # EMF/WMF 按显示尺寸渲染到该有效 DPI
+  output_format: "jpg"     # 默认仍输出 JPG
+  low_dpi_policy: "warn"   # PNG/JPG 源位图有效 DPI 不足时转档成功并提示
+
+equation_rendering:
+  mode: "pdf"            # 公式渲染模式：pdf / screenshot
+  pdf_dpi: 600            # PDF 渲染 DPI
+equation_display_scale_ratio: 0.8
+
+equation_centering:
+  enabled: true
+  precise:
+    line_width_mm: 165.0           # 行宽 L = 17.0 cm（用于公式居中调试）
+    desc_reserved_mm: 20.0
+
+table_image_centering:
+  enabled: true
+
+table_splitting:
+  max_height_cm: 24.0
+
+table_capture:
+  hard_table_row_threshold: 20
+  hard_table_page_width_variance_ratio: 0.08
+  pdf_dpi: 600
+  preview_fit:
+    enabled: false
+    safe_max_he_mm:
+    max_excess_mm:
+    calibration_report: "temp_processing/table_preview_calibration/preview_calibration_report.json"
+
+defensive:
+  enable_wordopenxml_supsub: true
+  claim_big_eq_width_mm: 120.0     # 权利要求大公式块级阈值，默认与代码中的逻辑一致
+
+# OLE 对象兼容性配置
+ole_compatibility:
+  # 已知兼容性差的 OLE 对象 ClassType 黑名单（原生 EMF 数据可能残缺，需使用 CopyAsPicture）
+  # 匹配规则：ClassType 转小写后包含列表中任意关键词即视为匹配
+  # 示例：ChemDraw.Document.6.0 → 匹配 "chemdraw"
+  broken_ole_classtype_blacklist:
+    - chemdraw
+    - chemwindow
+    - kingdraw
+
+xml_rules:
+  # 说明书附图(img_type="draw")的显示区域上限（单位：mm）
+  # 注：为确保“严格不超过 165/230”，可配置为略小的 164/230。
+  drawings_img_max_wi_mm: 164.0
+  drawings_img_max_he_mm: 230.0
+
+bus:
+  case_id: "10000390"           # 电子申请案件号，用于目录名和 list.xml
+  submission_code: ""      # 提交人/代理机构代码，可选
+  internal_no: ""  # 内部编号，可选
+  invention_title: ""  # 默认发明名称

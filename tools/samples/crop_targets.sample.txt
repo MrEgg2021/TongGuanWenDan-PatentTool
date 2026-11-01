@@ -1,0 +1,3 @@
+# Example paths relative to the repository root; replace with your own output images.
+output/example/100001/qlyqs_1.jpg
+output/example/100002/sms_1.jpg

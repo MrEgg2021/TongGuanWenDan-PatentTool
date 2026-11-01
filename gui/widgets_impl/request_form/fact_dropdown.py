@@ -1,0 +1,77 @@
+﻿from __future__ import annotations
+
+from .fact_dropdown_impl.dropdown_refresh import (
+    _candidate_values_for_col,
+    _on_inline_fact_combo_text_edited,
+    _refresh_inline_fact_dropdown,
+)
+from .fact_dropdown_impl.extractors import _get_applicant_tab_data, _get_contact_data, _get_inventor_tab_data
+from .fact_dropdown_impl.query_cache import (
+    _apply_exact_filters,
+    _build_fact_query_filters_from_exact,
+    _compute_fact_query_signature,
+    _get_current_fact_rows,
+    _get_group_name_for_fact_query,
+    _query_fact_records_cached,
+    _use_weak_fact_filters,
+)
+from .fact_dropdown_impl.registry import (
+    _collect_all_applicant_anchor_groups,
+    _collect_all_applicant_groups,
+    _collect_poa_applicant_anchor_groups_for_ctx,
+    _find_tab_owner_for_widget,
+    _get_agency_ref_code_for_poa,
+    _get_fact_selected_exact_for_ctx,
+    _get_inline_fact_combo_ctx_key,
+    _get_inline_fact_combo_field,
+    _register_inline_fact_combo,
+    _setup_inline_fact_dropdowns_for_applicant_tab,
+    _setup_inline_fact_dropdowns_for_agency,
+    _setup_inline_fact_dropdowns_for_contact,
+    _setup_inline_fact_dropdowns_for_inventor_tab,
+)
+from .fact_dropdown_impl.text_widget_utils import (
+    _is_empty_text_widget,
+    _norm_text,
+    _set_combo_by_data_or_text,
+    _set_line_edit_if_empty,
+    _set_region_combo_value,
+    _stable_sig_for_dict,
+    _unique_values,
+)
+
+__all__ = [
+    "_candidate_values_for_col",
+    "_on_inline_fact_combo_text_edited",
+    "_refresh_inline_fact_dropdown",
+    "_get_applicant_tab_data",
+    "_get_contact_data",
+    "_get_inventor_tab_data",
+    "_apply_exact_filters",
+    "_build_fact_query_filters_from_exact",
+    "_compute_fact_query_signature",
+    "_get_current_fact_rows",
+    "_get_group_name_for_fact_query",
+    "_query_fact_records_cached",
+    "_use_weak_fact_filters",
+    "_collect_all_applicant_anchor_groups",
+    "_collect_all_applicant_groups",
+    "_collect_poa_applicant_anchor_groups_for_ctx",
+    "_find_tab_owner_for_widget",
+    "_get_agency_ref_code_for_poa",
+    "_get_fact_selected_exact_for_ctx",
+    "_get_inline_fact_combo_ctx_key",
+    "_get_inline_fact_combo_field",
+    "_register_inline_fact_combo",
+    "_setup_inline_fact_dropdowns_for_applicant_tab",
+    "_setup_inline_fact_dropdowns_for_agency",
+    "_setup_inline_fact_dropdowns_for_contact",
+    "_setup_inline_fact_dropdowns_for_inventor_tab",
+    "_is_empty_text_widget",
+    "_norm_text",
+    "_set_combo_by_data_or_text",
+    "_set_line_edit_if_empty",
+    "_set_region_combo_value",
+    "_stable_sig_for_dict",
+    "_unique_values",
+]

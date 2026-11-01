@@ -1,0 +1,3 @@
+FILENAME_SANITIZE_PATTERN = r'[\\/:*?"<>|]+'
+
+__all__ = ["FILENAME_SANITIZE_PATTERN"]

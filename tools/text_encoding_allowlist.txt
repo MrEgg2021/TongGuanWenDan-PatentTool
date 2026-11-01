@@ -1,0 +1,5 @@
+# Optional line-level exemptions for text encoding integrity checker.
+# Format: path_glob:line[:rule_id]
+# Examples:
+# openspec/specs/example/spec.md:42:mojibake_known_tokens
+# gui/**/*.py:*:private_use_char

@@ -1,0 +1,24 @@
+{
+  "full_core": {
+    "description": "Core conversion, document processing and data management modules.",
+    "include": [
+      "core/logging_utils.py",
+      "core/tgd_data_management_impl/**/*.py",
+      "core/official_docs/**/*.py",
+      "core/formal_review/**/*.py",
+      "core/conversion.py",
+      "core/document_parser/**/*.py",
+      "core/xml_generator.py",
+      "core/word_engine.py",
+      "core/word_engine_impl/**/*.py",
+      "core/img_processor.py",
+      "core/app_preferences.py"
+    ],
+    "exclude": [
+      "**/__pycache__/**",
+      "**/*.pyc",
+      "**/__init__.py",
+      "tests/**"
+    ]
+  }
+}

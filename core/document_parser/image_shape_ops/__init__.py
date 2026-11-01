@@ -1,0 +1,1 @@
+"""Image shape operation modules."""

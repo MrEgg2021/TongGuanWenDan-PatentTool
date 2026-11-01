@@ -1,0 +1,365 @@
+{
+  "scope": "Installed runtime dependency inventory for local verification; rebuild inventory for the actual release environment.",
+  "packages": [
+    {
+      "package": "certifi",
+      "version": "2025.11.12",
+      "license": "MPL-2.0",
+      "license_files": [
+        "resources/third_party_licenses/certifi/licenses/LICENSE"
+      ],
+      "project_urls": [
+        "Source, https://github.com/certifi/python-certifi"
+      ]
+    },
+    {
+      "package": "cffi",
+      "version": "2.0.0",
+      "license": "MIT",
+      "license_files": [
+        "resources/third_party_licenses/cffi/licenses/AUTHORS",
+        "resources/third_party_licenses/cffi/licenses/LICENSE"
+      ],
+      "project_urls": [
+        "Documentation, https://cffi.readthedocs.io/",
+        "Changelog, https://cffi.readthedocs.io/en/latest/whatsnew.html",
+        "Downloads, https://github.com/python-cffi/cffi/releases",
+        "Contact, https://groups.google.com/forum/#!forum/python-cffi",
+        "Source Code, https://github.com/python-cffi/cffi",
+        "Issue Tracker, https://github.com/python-cffi/cffi/issues"
+      ]
+    },
+    {
+      "package": "charset-normalizer",
+      "version": "3.4.4",
+      "license": "MIT",
+      "license_files": [
+        "resources/third_party_licenses/charset-normalizer/licenses/LICENSE"
+      ],
+      "project_urls": [
+        "Changelog, https://github.com/jawah/charset_normalizer/blob/master/CHANGELOG.md",
+        "Documentation, https://charset-normalizer.readthedocs.io/",
+        "Code, https://github.com/jawah/charset_normalizer",
+        "Issue tracker, https://github.com/jawah/charset_normalizer/issues"
+      ]
+    },
+    {
+      "package": "cryptography",
+      "version": "42.0.8",
+      "license": "Apache-2.0 OR BSD-3-Clause",
+      "license_files": [
+        "resources/third_party_licenses/cryptography/LICENSE",
+        "resources/third_party_licenses/cryptography/LICENSE.APACHE",
+        "resources/third_party_licenses/cryptography/LICENSE.BSD"
+      ],
+      "project_urls": [
+        "homepage, https://github.com/pyca/cryptography",
+        "documentation, https://cryptography.io/",
+        "source, https://github.com/pyca/cryptography/",
+        "issues, https://github.com/pyca/cryptography/issues",
+        "changelog, https://cryptography.io/en/latest/changelog/"
+      ]
+    },
+    {
+      "package": "et_xmlfile",
+      "version": "2.0.0",
+      "license": "MIT",
+      "license_files": [
+        "resources/third_party_licenses/et-xmlfile/AUTHORS.txt"
+      ],
+      "project_urls": [
+        "Documentation, https://openpyxl.pages.heptapod.net/et_xmlfile/",
+        "Source, https://foss.heptapod.net/openpyxl/et_xmlfile",
+        "Tracker, https://foss.heptapod.net/openpyxl/et_xmfile/-/issues"
+      ]
+    },
+    {
+      "package": "idna",
+      "version": "3.11",
+      "license": "BSD-3-Clause",
+      "license_files": [
+        "resources/third_party_licenses/idna/licenses/LICENSE.md"
+      ],
+      "project_urls": [
+        "Changelog, https://github.com/kjd/idna/blob/master/HISTORY.rst",
+        "Issue tracker, https://github.com/kjd/idna/issues",
+        "Source, https://github.com/kjd/idna"
+      ]
+    },
+    {
+      "package": "lxml",
+      "version": "6.0.2",
+      "license": "BSD-3-Clause",
+      "license_files": [
+        "resources/third_party_licenses/lxml/licenses/LICENSE.txt",
+        "resources/third_party_licenses/lxml/licenses/LICENSES.txt"
+      ],
+      "project_urls": [
+        "Source, https://github.com/lxml/lxml",
+        "Bug Tracker, https://bugs.launchpad.net/lxml"
+      ]
+    },
+    {
+      "package": "numpy",
+      "version": "2.2.6",
+      "license": "See bundled license texts and package metadata",
+      "license_files": [
+        "resources/third_party_licenses/numpy/LICENSE.txt",
+        "resources/third_party_licenses/numpy/numpy/_core/include/numpy/random/LICENSE.txt",
+        "resources/third_party_licenses/numpy/numpy/ma/LICENSE",
+        "resources/third_party_licenses/numpy/numpy/random/LICENSE.md"
+      ],
+      "project_urls": [
+        "homepage, https://numpy.org",
+        "documentation, https://numpy.org/doc/",
+        "source, https://github.com/numpy/numpy",
+        "download, https://pypi.org/project/numpy/#files",
+        "tracker, https://github.com/numpy/numpy/issues",
+        "release notes, https://numpy.org/doc/stable/release"
+      ]
+    },
+    {
+      "package": "opencv-python",
+      "version": "4.12.0.88",
+      "license": "Apache 2.0",
+      "license_files": [
+        "resources/third_party_licenses/opencv-python/LICENSE-3RD-PARTY.txt",
+        "resources/third_party_licenses/opencv-python/LICENSE.txt",
+        "resources/third_party_licenses/opencv-python/cv2/LICENSE-3RD-PARTY.txt",
+        "resources/third_party_licenses/opencv-python/cv2/LICENSE.txt"
+      ],
+      "project_urls": []
+    },
+    {
+      "package": "openpyxl",
+      "version": "3.1.5",
+      "license": "MIT",
+      "license_files": [],
+      "project_urls": [
+        "Documentation, https://openpyxl.readthedocs.io/en/stable/",
+        "Source, https://foss.heptapod.net/openpyxl/openpyxl",
+        "Tracker, https://foss.heptapod.net/openpyxl/openpyxl/-/issues"
+      ]
+    },
+    {
+      "package": "pillow",
+      "version": "12.0.0",
+      "license": "MIT-CMU",
+      "license_files": [
+        "resources/third_party_licenses/pillow/licenses/LICENSE"
+      ],
+      "project_urls": [
+        "Changelog, https://github.com/python-pillow/Pillow/releases",
+        "Documentation, https://pillow.readthedocs.io",
+        "Funding, https://tidelift.com/subscription/pkg/pypi-pillow?utm_source=pypi-pillow&utm_medium=pypi",
+        "Homepage, https://python-pillow.github.io",
+        "Mastodon, https://fosstodon.org/@pillow",
+        "Release notes, https://pillow.readthedocs.io/en/stable/releasenotes/index.html",
+        "Source, https://github.com/python-pillow/Pillow"
+      ]
+    },
+    {
+      "package": "psutil",
+      "version": "7.1.3",
+      "license": "BSD-3-Clause",
+      "license_files": [
+        "resources/third_party_licenses/psutil/LICENSE"
+      ],
+      "project_urls": []
+    },
+    {
+      "package": "pycparser",
+      "version": "3.0",
+      "license": "BSD-3-Clause",
+      "license_files": [
+        "resources/third_party_licenses/pycparser/licenses/LICENSE"
+      ],
+      "project_urls": [
+        "Homepage, https://github.com/eliben/pycparser"
+      ]
+    },
+    {
+      "package": "PyMuPDF",
+      "version": "1.26.6",
+      "license": "Dual Licensed - GNU AFFERO GPL 3.0 or Artifex Commercial License",
+      "license_files": [
+        "resources/third_party_licenses/pymupdf/COPYING"
+      ],
+      "project_urls": [
+        "Documentation, https://pymupdf.readthedocs.io/",
+        "Source, https://github.com/pymupdf/pymupdf",
+        "Tracker, https://github.com/pymupdf/PyMuPDF/issues",
+        "Changelog, https://pymupdf.readthedocs.io/en/latest/changes.html"
+      ]
+    },
+    {
+      "package": "pypinyin",
+      "version": "0.55.0",
+      "license": "MIT",
+      "license_files": [
+        "resources/third_party_licenses/pypinyin/licenses/LICENSE.txt"
+      ],
+      "project_urls": [
+        "Documentation, https://pypinyin.readthedocs.io/",
+        "Source, https://github.com/mozillazg/python-pinyin",
+        "Tracker, https://github.com/mozillazg/python-pinyin/issues"
+      ]
+    },
+    {
+      "package": "PySide6",
+      "version": "6.9.1",
+      "license": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+      "license_files": [
+        "resources/third_party_licenses/pyside6/LicenseRef-Qt-Commercial.txt"
+      ],
+      "project_urls": [
+        "Homepage, https://pyside.org",
+        "Documentation, https://doc.qt.io/qtforpython",
+        "Repository, https://code.qt.io/cgit/pyside/pyside-setup.git/",
+        "Changelog, https://code.qt.io/cgit/pyside/pyside-setup.git/tree/doc/changelogs",
+        "Tracker, https://bugreports.qt.io/projects/PYSIDE"
+      ]
+    },
+    {
+      "package": "PySide6_Addons",
+      "version": "6.9.1",
+      "license": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+      "license_files": [
+        "resources/third_party_licenses/pyside6-addons/LicenseRef-Qt-Commercial.txt"
+      ],
+      "project_urls": [
+        "Homepage, https://pyside.org",
+        "Documentation, https://doc.qt.io/qtforpython",
+        "Repository, https://code.qt.io/cgit/pyside/pyside-setup.git/",
+        "Changelog, https://code.qt.io/cgit/pyside/pyside-setup.git/tree/doc/changelogs",
+        "Tracker, https://bugreports.qt.io/projects/PYSIDE"
+      ]
+    },
+    {
+      "package": "PySide6_Essentials",
+      "version": "6.9.1",
+      "license": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+      "license_files": [
+        "resources/third_party_licenses/pyside6-essentials/LicenseRef-Qt-Commercial.txt"
+      ],
+      "project_urls": [
+        "Homepage, https://pyside.org",
+        "Documentation, https://doc.qt.io/qtforpython",
+        "Repository, https://code.qt.io/cgit/pyside/pyside-setup.git/",
+        "Changelog, https://code.qt.io/cgit/pyside/pyside-setup.git/tree/doc/changelogs",
+        "Tracker, https://bugreports.qt.io/projects/PYSIDE"
+      ]
+    },
+    {
+      "package": "python-docx",
+      "version": "1.2.0",
+      "license": "MIT",
+      "license_files": [
+        "resources/third_party_licenses/python-docx/licenses/LICENSE"
+      ],
+      "project_urls": [
+        "Changelog, https://github.com/python-openxml/python-docx/blob/master/HISTORY.rst",
+        "Documentation, https://python-docx.readthedocs.org/en/latest/",
+        "Homepage, https://github.com/python-openxml/python-docx",
+        "Repository, https://github.com/python-openxml/python-docx"
+      ]
+    },
+    {
+      "package": "pywin32",
+      "version": "305",
+      "license": "PSF",
+      "license_files": [
+        "resources/third_party_licenses/pywin32/adodbapi/license.txt",
+        "resources/third_party_licenses/pywin32/pythonwin/license.txt",
+        "resources/third_party_licenses/pywin32/win32/license.txt",
+        "resources/third_party_licenses/pywin32/win32com/License.txt"
+      ],
+      "project_urls": []
+    },
+    {
+      "package": "PyYAML",
+      "version": "6.0.3",
+      "license": "MIT",
+      "license_files": [
+        "resources/third_party_licenses/pyyaml/licenses/LICENSE"
+      ],
+      "project_urls": [
+        "Bug Tracker, https://github.com/yaml/pyyaml/issues",
+        "CI, https://github.com/yaml/pyyaml/actions",
+        "Documentation, https://pyyaml.org/wiki/PyYAMLDocumentation",
+        "Mailing lists, http://lists.sourceforge.net/lists/listinfo/yaml-core",
+        "Source Code, https://github.com/yaml/pyyaml"
+      ]
+    },
+    {
+      "package": "reportlab",
+      "version": "4.4.5",
+      "license": "BSD license (see license.txt for details), Copyright (c) 2000-2025, ReportLab Inc.",
+      "license_files": [
+        "resources/third_party_licenses/reportlab/licenses/LICENSE"
+      ],
+      "project_urls": []
+    },
+    {
+      "package": "requests",
+      "version": "2.32.5",
+      "license": "Apache-2.0",
+      "license_files": [
+        "resources/third_party_licenses/requests/licenses/LICENSE"
+      ],
+      "project_urls": [
+        "Documentation, https://requests.readthedocs.io",
+        "Source, https://github.com/psf/requests"
+      ]
+    },
+    {
+      "package": "shiboken6",
+      "version": "6.9.1",
+      "license": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+      "license_files": [
+        "resources/third_party_licenses/shiboken6/LicenseRef-Qt-Commercial.txt"
+      ],
+      "project_urls": [
+        "Homepage, https://pyside.org",
+        "Documentation, https://doc.qt.io/qtforpython",
+        "Repository, https://code.qt.io/cgit/pyside/pyside-setup.git/",
+        "Changelog, https://code.qt.io/cgit/pyside/pyside-setup.git/tree/doc/changelogs",
+        "Tracker, https://bugreports.qt.io/projects/PYSIDE"
+      ]
+    },
+    {
+      "package": "typing_extensions",
+      "version": "4.15.0",
+      "license": "PSF-2.0",
+      "license_files": [
+        "resources/third_party_licenses/typing-extensions/licenses/LICENSE"
+      ],
+      "project_urls": [
+        "Bug Tracker, https://github.com/python/typing_extensions/issues",
+        "Changes, https://github.com/python/typing_extensions/blob/main/CHANGELOG.md",
+        "Documentation, https://typing-extensions.readthedocs.io/",
+        "Home, https://github.com/python/typing_extensions",
+        "Q & A, https://github.com/python/typing/discussions",
+        "Repository, https://github.com/python/typing_extensions"
+      ]
+    },
+    {
+      "package": "urllib3",
+      "version": "2.5.0",
+      "license": "MIT",
+      "license_files": [
+        "resources/third_party_licenses/urllib3/licenses/LICENSE.txt"
+      ],
+      "project_urls": [
+        "Changelog, https://github.com/urllib3/urllib3/blob/main/CHANGES.rst",
+        "Documentation, https://urllib3.readthedocs.io",
+        "Code, https://github.com/urllib3/urllib3",
+        "Issue tracker, https://github.com/urllib3/urllib3/issues"
+      ]
+    }
+  ],
+  "missing": [],
+  "requirement_mismatches": [
+    "pywin32 305 does not satisfy >=306"
+  ]
+}

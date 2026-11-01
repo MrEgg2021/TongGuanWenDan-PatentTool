@@ -1,0 +1,70 @@
+__pycache__/
+*.py[cod]
+*.pyc.*
+*.class
+.pycache_tmp*/
+_*.tmp
+
+.venv/
+venv/
+
+build/
+dist/
+*.egg-info/
+
+conversion.log
+temp_processing/
+output/
+artifacts/
+.claude/
+/.codex/
+/.vscode/
+
+# Local agent instructions at any directory depth
+AGENTS.md
+
+# Local specifications and change records
+/openspec/
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+.DS_Store
+Thumbs.db
+.windsurfrules
+
+tgd_db_debug_connect.log
+nuitka-crash-report.xml
+
+# Windows reserved device name (cannot be tracked reliably)
+/nul
+
+# Local reference packages kept outside versioned evidence
+官方通知书文件参考/官方收据参考/
+
+# Explicit test artifacts under test/
+test/output/
+test/temp_processing/
+test/*.zip
+test/
+
+# Local runtime, GUI launch and visual-comparison artifacts
+/tmp/
+
+# Local state and secrets never belong in the public source tree.
+.env
+.env.*
+!.env.example
+user_data/
+.workbuddy/
+.sisyphus/
+*.db
+*.db-wal
+*.db-shm
+*.lic
+*private*key*.pem
+
+# Feishu manual draft and its local md->docx export helper (not part of the public source tree).
+/docs/FEISHU_MANUAL.md
+/tools/manual_docx_export.py
