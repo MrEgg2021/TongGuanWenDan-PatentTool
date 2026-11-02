@@ -119,7 +119,7 @@ def _run_nuitka_for_module(
     ]
     if os.name == "nt":
         if compiler == "mingw64":
-            cmd.append("--mingw64")
+            cmd.extend(("--mingw64", "--assume-yes-for-downloads"))
         else:
             cmd.append("--msvc=latest")
 

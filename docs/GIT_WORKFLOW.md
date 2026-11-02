@@ -19,6 +19,9 @@
 
 按 README 建立独立 Python 环境并安装依赖。构建工具另需 PyInstaller、Nuitka 及其所需编译工具。先通过编译、静态检查、单元测试、资源和文本编码检查、OpenSpec 校验，再明确执行 `python tools/build_release_exes.py`。该入口先调用 `tools/build_nuitka_pyd.py --profile full_core` 编译核心模块，再按 `CPCXMLGui.spec` 打包，默认禁用 UPX；本地没有 `openspec/` 时跳过 OpenSpec 校验并输出提示。源码验证不能替代实际 EXE 验证。
 
+- 没有 Visual Studio 的机器执行 `python tools/build_release_exes.py --compiler mingw64`，由 Nuitka 自动下载 MinGW。
+- 构建前把 `TMP`、`TEMP`、`TMPDIR` 指向不含空格的目录（如 `D:\tgdtmp`）；指向带空格的目录会让 MinGW 的 LTO 链接报 `lto1.exe: fatal error: could not open symbol resolution file`。
+
 ## 公开前检查
 
 - 核查模板、图标、字形图片、DTD、代码表及其他素材的来源与再分发权；项目源码许可不代表这些素材已获再分发授权。
