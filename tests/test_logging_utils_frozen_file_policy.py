@@ -10,7 +10,13 @@ from pathlib import Path
 
 
 class LoggingUtilsFilePolicyTests(unittest.TestCase):
-    def _run_probe(self, *, frozen: bool) -> dict[str, object]:
+    def _run_probe(
+        self,
+        *,
+        frozen: bool,
+        app_dir: Path | None = None,
+        user_dir: Path | None = None,
+    ) -> dict[str, object]:
         repo_root = Path(__file__).resolve().parents[1]
         code = textwrap.dedent(
             """
@@ -68,10 +74,10 @@ class LoggingUtilsFilePolicyTests(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            app_dir = root / "app"
-            user_dir = root / "user"
-            app_dir.mkdir()
-            user_dir.mkdir()
+            app_dir = Path(app_dir) if app_dir is not None else root / "app"
+            user_dir = Path(user_dir) if user_dir is not None else root / "user"
+            app_dir.mkdir(parents=True, exist_ok=True)
+            user_dir.mkdir(parents=True, exist_ok=True)
 
             proc = subprocess.run(
                 [sys.executable, "-c", code, str(app_dir), str(user_dir), "1" if frozen else "0"],
@@ -110,6 +116,41 @@ class LoggingUtilsFilePolicyTests(unittest.TestCase):
         self.assertTrue(payload["log_has_debug_line"])
         self.assertTrue(payload["log_has_raw_stderr"])
         self.assertTrue(payload["log_has_session_marker"])
+
+    def test_second_session_appends_and_keeps_history_without_nul_bytes(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            app_dir = root / "app"
+            user_dir = root / "user"
+            app_dir.mkdir()
+            user_dir.mkdir()
+
+            self._run_probe(frozen=False, app_dir=app_dir, user_dir=user_dir)
+            self._run_probe(frozen=False, app_dir=app_dir, user_dir=user_dir)
+
+            raw = (app_dir / "conversion.log").read_bytes()
+            self.assertNotIn(b"\x00", raw)
+            self.assertGreaterEqual(raw.count(b"[DIAGNOSTIC_SESSION_START]"), 2)
+
+    def test_oversized_log_is_rotated_at_startup(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            app_dir = root / "app"
+            user_dir = root / "user"
+            app_dir.mkdir()
+            user_dir.mkdir()
+            log_path = app_dir / "conversion.log"
+            log_path.write_bytes(b"OLD-SESSION" + b"x" * (5 * 1024 * 1024))
+
+            self._run_probe(frozen=False, app_dir=app_dir, user_dir=user_dir)
+
+            backup = app_dir / "conversion.log.1"
+            self.assertTrue(backup.exists())
+            self.assertTrue(backup.read_bytes().startswith(b"OLD-SESSION"))
+            raw = log_path.read_bytes()
+            self.assertNotIn(b"\x00", raw)
+            self.assertNotIn(b"OLD-SESSION", raw)
+            self.assertIn(b"[DIAGNOSTIC_SESSION_START]", raw)
 
 
 if __name__ == "__main__":

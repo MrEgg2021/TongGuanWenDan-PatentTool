@@ -40,6 +40,24 @@ class ArchiveSafetyTests(unittest.TestCase):
         with self.assertRaisesRegex(ArchiveSafetyError, "实际解压大小"):
             ArchiveBudget(max_member_bytes=4).copy(FalseHeaderArchive(), info, io.BytesIO())
 
+    def test_validate_skips_directory_entries_including_bare_root(self) -> None:
+        data = io.BytesIO()
+        with zipfile.ZipFile(data, "w") as archive:
+            archive.writestr(zipfile.ZipInfo("/"), b"")
+            archive.writestr("folder/", b"")
+            archive.writestr("folder/notice.xml", b"ok")
+        with zipfile.ZipFile(data, "r") as archive:
+            infos = ArchiveBudget().validate(archive)
+        self.assertEqual([info.filename for info in infos], ["/", "folder/", "folder/notice.xml"])
+
+    def test_validate_still_rejects_absolute_file_entries(self) -> None:
+        data = io.BytesIO()
+        with zipfile.ZipFile(data, "w") as archive:
+            archive.writestr("/absolute/notice.xml", b"ok")
+        with zipfile.ZipFile(data, "r") as archive:
+            with self.assertRaisesRegex(ArchiveSafetyError, "路径不安全"):
+                ArchiveBudget().validate(archive)
+
 
 if __name__ == "__main__":
     unittest.main()

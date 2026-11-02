@@ -12,7 +12,7 @@ Word 转档 CPC XML · 官方通知书整理 · 形式审查 · 答复与补正�
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![Platform](https://img.shields.io/badge/Platform-Windows%2010%2F11-0078D6?logo=windows&logoColor=white)
 ![UI](https://img.shields.io/badge/UI-PySide6-41CD52?logo=qt&logoColor=white)
-![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen)
+![Version](https://img.shields.io/badge/Version-1.0.1-brightgreen)
 ![Language](https://img.shields.io/badge/%E7%95%8C%E9%9D%A2%E8%AF%AD%E8%A8%80-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-red)
 
 **免费开源 · 无需激活 · 离线运行 · 数据不出本机**
@@ -66,7 +66,7 @@ https://github.com/MrEgg2021/TongGuanWenDan-PatentTool/releases/latest
 
 ### 第 2 步：下载 EXE 文件
 
-滚动到页面下方的 **Assets** 区域，下载 `TongGuanWenDan-PatentTool_v1.0.0.exe`（因 GitHub 附件名不支持中文，所以用英文文件名；运行后程序窗口标题仍为“通官文旦-专利工具”）。
+滚动到页面下方的 **Assets** 区域，下载 `TongGuanWenDan-PatentTool_v1.0.1.exe`（因 GitHub 附件名不支持中文，所以用英文文件名；运行后程序窗口标题仍为“通官文旦-专利工具”）。
 
 - 只下载 `.exe` 文件。
 - 不要点 `Source code (zip)` / `Source code (tar.gz)`，那是源码，双击不能运行。
@@ -90,7 +90,7 @@ https://github.com/MrEgg2021/TongGuanWenDan-PatentTool/releases/latest
 
 源码在 GitHub 与 [Gitee 国内镜像](https://gitee.com/mregg2021/TongGuanWenDan-PatentTool) 保持同步，浏览和克隆源码用哪个都行。但受 Gitee 单文件大小限制，**免安装、双击即用的便携版 EXE 只在 GitHub Releases 发布，Gitee 上没有**。如果你在国内、访问 GitHub 不便：
 
-- **国内直连（推荐）**：打开[飞书使用手册](https://tcnss0u1hgy9.feishu.cn/docx/O5f5d9AWHop5OjxkhakcP3Jkntb)，下载文档内附件 `通官文旦-专利工具_v1.0.0.exe`，无需登录；
+- **国内直连（推荐）**：打开[飞书使用手册](https://tcnss0u1hgy9.feishu.cn/docx/O5f5d9AWHop5OjxkhakcP3Jkntb)，下载文档内附件 `通官文旦-专利工具_v1.0.1.exe`，无需登录；
 - 或换网络环境后从 [GitHub Releases](https://github.com/MrEgg2021/TongGuanWenDan-PatentTool/releases/latest) 下载（版本以 Release 为准，飞书附件为手工上传副本，可能略有滞后）；
 - 仍无法获取时，添加作者微信 `MrEgg208` 说明情况，获取便携版 EXE 文件。
 
@@ -106,7 +106,7 @@ python -m venv .venv
 .venv\Scripts\python gui_app.py
 ```
 
-使用说明详见 [用户手册](docs/USER_GUIDE.md)，版本变化见 [更新日志](用户使用手册+更新日志/更新日志/v1.0.0.md)。
+使用说明详见 [用户手册](docs/USER_GUIDE.md)，版本变化见 [更新日志](用户使用手册+更新日志/更新日志/v1.0.1.md)。
 
 ## ⌨️ 命令行
 

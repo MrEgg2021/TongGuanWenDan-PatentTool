@@ -6,8 +6,16 @@ from pathlib import Path
 from unittest.mock import patch
 
 from core.archive_safety import ArchiveBudget, ArchiveSafetyError
-from core.official_docs import NoticeInputBundle, resolve_notice_inputs
+from core.official_docs import NoticeInputBundle, parse_official_notice_archive, resolve_notice_inputs
 from core.official_docs.zip_reader import NoticeZipReader
+
+
+_NOTICE_LIST_XML = (
+    "<NOTICE><FAWENXLH>2026103002872730</FAWENXLH>"
+    "<SHUXINGXX><SHENQINGH>2026112333022</SHENQINGH>"
+    "<TONGZHISBM>210407</TONGZHISBM><TONGZHISMC>驳回决定通知书</TONGZHISMC>"
+    "<FAWENR>2026-10-30</FAWENR></SHUXINGXX></NOTICE>"
+).encode("utf-8")
 
 
 class OfficialDocsInputResolverTests(unittest.TestCase):
@@ -107,6 +115,39 @@ class OfficialDocsInputResolverTests(unittest.TestCase):
             self.assertIn("总解压大小超出限制", result.ignored[0].reason)
             with NoticeZipReader(result.leaves[0].zip_path) as reader:
                 self.assertEqual(reader.iter_entries(), [])
+
+    def test_bare_root_directory_entry_does_not_block_outer_archive(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            zip_path = root / "notice.zip"
+            with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as zf:
+                zf.writestr(zipfile.ZipInfo("/"), b"")
+                zf.writestr("list.xml", _NOTICE_LIST_XML)
+                zf.writestr("210407.pdf", b"%PDF-1.4\n")
+
+            result = resolve_notice_inputs([str(zip_path)], temp_root_dir=str(root / "temp"))
+
+            self.assertEqual(len(result.leaves), 1)
+            self.assertEqual(result.ignored, [])
+
+    def test_bare_root_directory_entry_inside_single_inner_zip_parses(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            inner = io.BytesIO()
+            with zipfile.ZipFile(inner, "w") as zf:
+                zf.writestr(zipfile.ZipInfo("/"), b"")
+                zf.writestr("list.xml", _NOTICE_LIST_XML)
+                zf.writestr("210407.pdf", b"%PDF-1.4\n")
+            outer = self._make_outer_zip(root, "notice.zip", {"inner.zip": inner.getvalue()})
+
+            result = resolve_notice_inputs([str(outer)], temp_root_dir=str(root / "temp"))
+
+            self.assertEqual(len(result.leaves), 1)
+            self.assertEqual(result.ignored, [])
+            parsed = parse_official_notice_archive(result.leaves[0].zip_path)
+            self.assertEqual(parsed.errors, [])
+            self.assertEqual(parsed.meta.notice_code, "210407")
+            self.assertEqual([source.display_name for source in parsed.pdf_entries], ["210407.pdf"])
 
     def _make_outer_zip(self, root: Path, name: str, entries: dict[str, bytes]) -> Path:
         zip_path = root / name

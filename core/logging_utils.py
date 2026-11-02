@@ -12,6 +12,8 @@ from core.paths_utils import get_app_dir, get_user_data_dir
 IS_FROZEN = getattr(sys, "frozen", False)
 _STDIO_CAPTURE_INSTALLED = False
 _CURRENT_LOG_PATH = ""
+_LOG_MAX_BYTES = 5 * 1024 * 1024
+_LOG_BACKUP_SUFFIX = ".1"
 
 
 class _MirrorStream:
@@ -97,6 +99,22 @@ def _resolve_log_path() -> str:
         return "conversion.log"
 
 
+def _rotate_oversized_log(log_path: str) -> None:
+    """启动时把超限日志改名为 conversion.log.1，保留一份历史且限制体积。
+
+    日志始终以追加方式打开：若像旧实现那样用覆盖模式打开，另一个仍在运行的实例会按原
+    偏移继续写入，中间空出的区间会被系统填成 NUL 字节，编辑器随即把文件判定为二进制。
+    """
+    try:
+        if not log_path or not os.path.exists(log_path):
+            return
+        if os.path.getsize(log_path) < _LOG_MAX_BYTES:
+            return
+        os.replace(log_path, log_path + _LOG_BACKUP_SUFFIX)
+    except OSError:
+        return
+
+
 def _install_stdio_capture(log_path: str) -> None:
     """Capture raw stderr/stdout text into conversion.log."""
 
@@ -171,8 +189,11 @@ def _init_logger() -> logging.Logger:
     log_path = _resolve_log_path()
 
     if log_path:
+        _rotate_oversized_log(log_path)
+
+    if log_path:
         try:
-            handlers.append(logging.FileHandler(log_path, mode="w", encoding="utf-8"))
+            handlers.append(logging.FileHandler(log_path, mode="a", encoding="utf-8"))
             _CURRENT_LOG_PATH = log_path
         except Exception:
             log_path = ""

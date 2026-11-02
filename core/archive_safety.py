@@ -56,7 +56,11 @@ class ArchiveBudget:
         self._read = 0
 
     def validate(self, archive: zipfile.ZipFile) -> list[zipfile.ZipInfo]:
-        """Reject every unsafe member before the caller writes any extracted file."""
+        """Reject every unsafe member before the caller writes any extracted file.
+
+        目录条目（名称以 / 结尾，含部分官方导出包写出的根目录 "/"）不承载数据、也不会被解包
+        写出，因此不参与路径校验；否则一个目录标记就会让整包被拒绝。文件条目仍逐一校验。
+        """
         infos = archive.infolist()
         count = self._members + len(infos)
         declared = self._declared
@@ -64,6 +68,8 @@ class ArchiveBudget:
             raise ArchiveSafetyError("ZIP 成员数量超出限制")
         seen: set[str] = set()
         for info in infos:
+            if info.is_dir():
+                continue
             name = safe_member_path(info.filename).as_posix()
             if name.casefold() in seen:
                 raise ArchiveSafetyError(f"ZIP 包含重复成员：{name!r}")

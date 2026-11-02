@@ -1,7 +1,7 @@
 # 核心配置
 app:
   name: "TongGuanWenDan"
-version: "1.0.0"
+version: "1.0.1"
 
 paths:
   temp_dir: "temp_processing"

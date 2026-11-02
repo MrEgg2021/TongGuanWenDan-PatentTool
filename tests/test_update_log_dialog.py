@@ -7,13 +7,14 @@ from gui.update_log_dialog import _load_changelogs
 
 
 class UpdateLogDialogTests(unittest.TestCase):
-    def test_loads_new_project_initial_log_only(self) -> None:
+    def test_loads_project_logs_newest_first(self) -> None:
         entries = _load_changelogs()
 
-        self.assertEqual(len(entries), 1)
-        self.assertEqual(entries[0][0], "V1.0.0")
-        self.assertNotIn("主程序、许可证生成工具、命令行入口和用户手册版本统一更新", entries[0][1])
-        self.assertIn("无需激活", entries[0][1])
+        self.assertEqual(len(entries), 2)
+        self.assertEqual(entries[0][0], "V1.0.1")
+        self.assertEqual(entries[1][0], "V1.0.0")
+        self.assertNotIn("主程序、许可证生成工具、命令行入口和用户手册版本统一更新", entries[1][1])
+        self.assertIn("无需激活", entries[1][1])
 
     def test_entry_is_inside_about_page_not_sidebar(self) -> None:
         repo_root = Path(__file__).resolve().parents[1]

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from core.logging_utils import logger
 from core.user_messages import user_error_text
 
 from .shared import (
@@ -123,6 +124,19 @@ def on_official_docs_toggle_task_details_visibility(self) -> None:
     _set_official_docs_list_detail_visible(self, not current_visible)
 
 
+def _official_docs_ignored_notice_text(ignored: Iterable, *, limit: int = 8) -> str:
+    """把被拒绝的导入项整理成用户可读的提示文本。"""
+    items = list(ignored or [])
+    lines = [
+        f"{str(getattr(item, 'display_name', '') or '').strip()}: "
+        f"{str(getattr(item, 'reason', '') or '').strip()}"
+        for item in items[:limit]
+    ]
+    if len(items) > limit:
+        lines.append(f"... 其余 {len(items) - limit} 项已跳过")
+    return user_error_text("\n".join(line for line in lines if line.strip(": ")))
+
+
 def _add_official_docs_inputs(self, input_paths: Iterable[str]) -> int:
     self._init_official_docs_state()
     normalized_paths = normalize_notice_input_paths(input_paths)
@@ -137,7 +151,8 @@ def _add_official_docs_inputs(self, input_paths: Iterable[str]) -> int:
         temp_root_dir=temp_root,
         no_list_multi_pdf_mode=str(settings.get("no_list_multi_pdf_mode", "split_each_pdf") or "split_each_pdf"),
     )
-    self._official_docs_last_import_ignored = list(getattr(resolved, "ignored", []) or [])
+    ignored = list(getattr(resolved, "ignored", []) or [])
+    self._official_docs_last_import_ignored = ignored
 
     added = 0
     leaves = getattr(self, "_official_docs_leaves", {})
@@ -208,7 +223,23 @@ def _add_official_docs_inputs(self, input_paths: Iterable[str]) -> int:
             )
             added += 1
 
+    logger.info(
+        "[OFFICIAL_DOCS_IMPORT] selected=%d added=%d ignored=%d",
+        len(normalized_paths),
+        added,
+        len(ignored),
+    )
+    for item in ignored:
+        logger.warning(
+            "[OFFICIAL_DOCS_IMPORT_IGNORED] %s: %s",
+            str(getattr(item, "display_name", "") or ""),
+            str(getattr(item, "reason", "") or ""),
+        )
+
     if added <= 0:
+        # 全部被拒时同样要给出具体原因：此前这里直接返回，用户只看到“没反应”。
+        if ignored:
+            QMessageBox.warning(self, "ZIP 未导入", _official_docs_ignored_notice_text(ignored))
         return 0
 
     for leaf_id in self._iter_leaf_ids_in_order():
@@ -222,12 +253,8 @@ def _add_official_docs_inputs(self, input_paths: Iterable[str]) -> int:
             break
     self._refresh_official_docs_detail()
     _set_official_docs_list_detail_visible(self, True)
-    ignored = list(getattr(resolved, "ignored", []) or [])
     if ignored:
-        preview_lines = [f"{item.display_name}: {item.reason}" for item in ignored[:8]]
-        if len(ignored) > 8:
-            preview_lines.append(f"... 其余 {len(ignored) - 8} 项已跳过")
-        QMessageBox.warning(self, "部分 ZIP 未导入", user_error_text("\n".join(preview_lines)))
+        QMessageBox.warning(self, "部分 ZIP 未导入", _official_docs_ignored_notice_text(ignored))
     return added
 
 def on_official_docs_choose_zips(self) -> None:
