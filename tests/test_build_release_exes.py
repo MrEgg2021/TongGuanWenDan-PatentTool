@@ -27,6 +27,13 @@ class BuildReleaseExesTests(unittest.TestCase):
         self.assertNotIn("--upx-path", flattened)
         self.assertNotIn("--noupx", flattened)
 
+    def test_build_release_commands_pass_compiler_backend(self) -> None:
+        commands = build_release_exes.build_release_commands(compiler="mingw64")
+        nuitka_commands = [command for command in commands if any("build_nuitka_pyd.py" in part for part in command)]
+
+        self.assertEqual(1, len(nuitka_commands))
+        self.assertEqual("mingw64", nuitka_commands[0][nuitka_commands[0].index("--compiler") + 1])
+
     def test_build_release_commands_skip_openspec_when_directory_absent(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             commands = build_release_exes.build_release_commands(Path(tmp))

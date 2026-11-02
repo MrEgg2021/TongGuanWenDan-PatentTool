@@ -20,7 +20,7 @@ def _openspec_validation_command(repo_root: Path) -> list[str] | None:
     return ["openspec", "validate", "--all"]
 
 
-def build_release_commands(repo_root: Path = REPO_ROOT) -> list[list[str]]:
+def build_release_commands(repo_root: Path = REPO_ROOT, *, compiler: str = "msvc") -> list[list[str]]:
     py = sys.executable
     commands = [
         [py, "-m", "compileall", "-q", "."],
@@ -37,7 +37,7 @@ def build_release_commands(repo_root: Path = REPO_ROOT) -> list[list[str]]:
         commands.append(openspec_cmd)
     commands.extend(
         [
-            [py, "tools/build_nuitka_pyd.py", "--profile", "full_core", "--output-root", "build/nuitka_pyd", "--clean"],
+            [py, "tools/build_nuitka_pyd.py", "--profile", "full_core", "--output-root", "build/nuitka_pyd", "--compiler", compiler, "--clean"],
             ["pyinstaller", "--clean", "--noconfirm", "CPCXMLGui.spec"],
         ]
     )
@@ -62,12 +62,19 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description="Run the local Windows EXE release build chain with UPX disabled."
     )
-    parser.parse_args(argv)
+    parser.add_argument(
+        "--compiler",
+        choices=("msvc", "mingw64"),
+        default="msvc",
+        help="Windows compiler backend for the Nuitka step: msvc (default) or mingw64.",
+    )
+    args = parser.parse_args(argv)
 
     print(f"[build_release_exes] repo root: {REPO_ROOT}")
     print("[build_release_exes] UPX disabled: no --upx-dir will be passed to PyInstaller")
+    print(f"[build_release_exes] compiler: {args.compiler}")
 
-    run_release_commands(build_release_commands(REPO_ROOT), repo_root=REPO_ROOT)
+    run_release_commands(build_release_commands(REPO_ROOT, compiler=str(args.compiler)), repo_root=REPO_ROOT)
     return 0
 
 

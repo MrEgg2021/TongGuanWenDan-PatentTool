@@ -99,6 +99,7 @@ def _run_nuitka_for_module(
     output_root: Path,
     jobs: int,
     verbose: bool,
+    compiler: str = "msvc",
 ) -> dict[str, Any]:
     rel = source_file.relative_to(repo_root)
     rel_posix = rel.as_posix()
@@ -117,7 +118,10 @@ def _run_nuitka_for_module(
         f"--jobs={jobs}",
     ]
     if os.name == "nt":
-        cmd.append("--msvc=latest")
+        if compiler == "mingw64":
+            cmd.append("--mingw64")
+        else:
+            cmd.append("--msvc=latest")
 
     started = time.perf_counter()
     proc = subprocess.run(
@@ -194,6 +198,12 @@ def main() -> int:
         help="Dedicated owned subdirectory under repository build/ for compiled .pyd files.",
     )
     parser.add_argument("--jobs", default="auto", help="Nuitka compile jobs. Use integer or 'auto'.")
+    parser.add_argument(
+        "--compiler",
+        choices=("msvc", "mingw64"),
+        default="msvc",
+        help="Windows compiler backend for Nuitka: msvc (default) or mingw64 (auto-downloaded, no Visual Studio required).",
+    )
     parser.add_argument("--clean", action="store_true", help="Clean output root before compile.")
     parser.add_argument("--verbose", action="store_true", help="Print full stdout from Nuitka subprocesses.")
     args = parser.parse_args()
@@ -225,6 +235,7 @@ def main() -> int:
             output_root=output_root,
             jobs=jobs,
             verbose=bool(args.verbose),
+            compiler=str(args.compiler),
         )
         results.append(result)
 
@@ -239,6 +250,7 @@ def main() -> int:
         "config_path": str(config_path),
         "output_root": str(output_root),
         "jobs": jobs,
+        "compiler": str(args.compiler),
         "patterns": {
             "include": list(profile.include),
             "exclude": list(profile.exclude),
